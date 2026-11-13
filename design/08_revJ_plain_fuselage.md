@@ -54,7 +54,8 @@ Volume 53,966 mm³ = 29.7 g (the hopper was 43.7 g). The elevator and rudder ser
 
 ## Known issues
 
-- **The FreeCAD assembly solver returns an error (−1) on rev J**, although every part is in its correct place (checked by the contact scan). It solves when any one of several unrelated fixed joints is suppressed, which points to a redundancy the solver cannot resolve rather than a misplaced part. Dragging parts in the Assembly workbench may not work until this is found.
+- **Solver workaround.** With the cargo joints removed, FreeCAD 1.1.1's assembly solver crashed internally ("Solve failed: vector", during its redundant-constraint check). No joint was wrong: the smallest failing set was 13 unrelated joints, and joint order, hinge limits and joint types made no difference. The fix is to ground the nose sub-assembly directly (`Ground NoseAssy`) instead of fixing it to the spine, which is itself grounded, so the result is the same rigid connection. The original joint is kept, suppressed. The solver now returns 0 and no part moved. If the spine's pod station is ever changed, re-enable that joint, solve, and suppress it again.
+- Two fixed joints for the pushrod Z-bends are flagged invalid by FreeCAD (also in rev H); the parts sit in place.
 - **The fuselage is a script-built solid, not a sketch-driven body.** To change it, edit the numbers at the top of `build_revJ.py` and re-run it on rev H.
 - **The CG is 9 mm further forward than rev H.** That is on the safe side for a beginner, but it needs more up-elevator trim; move the battery aft in the pod if it flies nose-heavy.
 - **This version carries no payload**, so it cannot score in the Techfest payload rounds. Rev H remains the competition version.

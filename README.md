@@ -69,7 +69,6 @@ Done: full airframe modelled and assembled, no floating parts, no clashes above 
 
 Still open:
 
-- **Rev J's assembly solver reports an error** although every part is in place; see the rev J document.
 - **Rev J carries no payload**, so only rev H can score in the payload rounds.
 - **Electronics are placeholders.** Motor, ESC, battery and servo masses are typical values; the team's actual parts are not yet confirmed.
 - **Topology optimisation was stopped after two parts** (front wing clamp −45 %, motor mount −36 %) because it was taking too long. The tail mount and rear clamp keep their hand-lightened shapes.
