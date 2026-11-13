@@ -137,3 +137,27 @@ Full description: `08_revJ_plain_fuselage.md`. Script: `cad/scripts/build_revJ.p
 - **Removed:** hopper, gates, chute, lids, both fairings, 2 servos and their linkages: 35 items.
 - **Result: 703.1 g (−104 g), CG X 224.7, static margin 20 %.** 120 parts, all attached, no new clashes.
 - **Problems:** (1) the tail cone's source shape was left visible after its body was deleted; removed. (2) An unused M3×40 body and BOM row were left from phase 5; the BOM row is now the M3×20 cross-bolt. (3) The assembly solver returned −1 on rev J. Cause: an internal crash in FreeCAD's solver ("Solve failed: vector"), triggered by the reduced joint set and not by any one joint (tested: joint order, hinge limits, joint types, minimal failing set of 13 joints). Fix: the nose sub-assembly is grounded directly instead of fixed to the grounded spine. Solver returns 0, no part moved.
+
+## Phase 8: rev J model clean-up (2026-11-13)
+Plan: `09_revJ_cleanup_plan.md`. Builder's notebook: `logs/phase8_log.md`. Final tree: `cad/release_revJ/tree_revJ.txt`.
+
+**Goal:** make the model simple to read and change before the next design changes. No geometry changed and no print files were regenerated.
+
+| | Before | After |
+|---|---|---|
+| Top-level groups in the assembly | 21 | 9: Spine, Fuselage, Nose, Wing, Aileron_R, Aileron_L, Tail, Elevator, Rudder |
+| Joints | 22 (1 suppressed, 2 invalid) | 9: ground on the spine, 4 fixed, 4 hinges |
+| Objects in the document | 1354 | 1137 |
+| Coordinate systems | 104 | 22 |
+| `Params` aliases | 266 | 235 |
+
+- **How it was done:** sub-assemblies were merged by moving their links into the target group and converting each placement, and existing joints were retargeted instead of rebuilt. The two elevator halves are now one unit on one hinge, as they are in reality.
+- **Proof that nothing moved:** a snapshot of every part's volume and global centre of mass taken before the work matches the result with 0 differences (120 parts plus the covering film).
+- **Solver:** with the simpler joint set the plain fixed nose joint solves again, so the grounding workaround from phase 7 was removed.
+- **Independent check (separate verifier):** snapshot, contact scan, joint references, a forced full recompute and a hinge test were all re-run from the saved file and passed. Nothing was left dangling by the deleted coordinate systems or aliases.
+- **Things to know:**
+  - Five group labels (Spine, Fuselage, Aileron_R, Aileron_L, Rudder) are the same as a body label. Scripts should look objects up by internal name (for example `A_HopperAssy`), and relabelling one in the GUI may add a "001" suffix.
+  - The fuselage body and its group still have the internal names `Hopper` and `A_HopperAssy`; FreeCAD cannot rename those.
+  - Deleted coordinate systems (servo, tray and bolt positions, `LCS_ele`, `LCS_rud`, `LCS_clamp_r`, `LCS_stab`, `LCS_fin`) must be recreated if later work needs them.
+  - 65 unused `Params` aliases that are not cargo-related were left in place.
+  - Setting a hinge joint's `Angle` property does not move the surface in this FreeCAD version; rotate the surface's link and solve instead.
