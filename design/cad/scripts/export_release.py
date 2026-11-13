@@ -1,4 +1,4 @@
-"""Export the rev H manufacturing release from TechfestPlane_revH.FCStd.
+"""Export the manufacturing release of one revision (env REV, default J; REV=H for the cargo version).
 
 Run headless:  freecadcmd design/cad/scripts/export_release.py
 Writes design/cad/release_revH/:
@@ -14,8 +14,9 @@ import FreeCAD, Part, MeshPart
 
 HERE = os.path.dirname(os.path.abspath(__file__)) if "__file__" in globals() else os.getcwd()
 CAD = os.path.dirname(HERE)
-SRC = os.path.join(CAD, "TechfestPlane_revH.FCStd")
-OUT = os.path.join(CAD, "release_revH")
+REV = os.environ.get("REV", "J")
+SRC = os.path.join(CAD, "TechfestPlane_rev%s.FCStd" % REV)
+OUT = os.path.join(CAD, "release_rev%s" % REV)
 for d in ("printed", "laser", "carbon", "assembly"):
     os.makedirs(os.path.join(OUT, d), exist_ok=True)
 
@@ -26,7 +27,7 @@ def say(*a):
 
 doc = FreeCAD.openDocument(SRC)
 bodies = {o.Label: o for o in doc.Objects if o.TypeId == "PartDesign::Body"}
-rows = list(csv.DictReader(open(os.path.join(CAD, "revH_BOM.csv"))))
+rows = list(csv.DictReader(open(os.path.join(CAD, "rev%s_BOM.csv" % REV))))
 old_total = float([r for r in rows if r["part"].startswith("TOTAL")][0]["total_mass_g"])
 old_cg = {r["part"]: float(r["total_mass_g"]) for r in rows if r["part"].startswith("CG_")}
 
@@ -101,7 +102,7 @@ cgy = (old_total * old_cg["CG_Y_mm"] + dMy) / (old_total + dM)
 cgz = (old_total * old_cg["CG_Z_mm"] + dMz) / (old_total + dM)
 say("EMPTY MASS %.1f g (was %.1f)  rule: <= 1000" % (total, old_total))
 say("CG X %.1f (was %.1f)  Y %.1f  Z %.1f" % (cgx, old_cg["CG_X_mm"], cgy, cgz))
-with open(os.path.join(OUT, "BOM_revH_release.csv"), "w", newline="") as f:
+with open(os.path.join(OUT, "BOM_rev%s_release.csv" % REV), "w", newline="") as f:
     w = csv.DictWriter(f, fieldnames=list(rows[0].keys())); w.writeheader(); w.writerows(new_rows)
     blank = {k: "" for k in rows[0].keys()}
     for k, v in (("TOTAL EMPTY (no payload)", round(total, 2)), ("CG_X_mm", round(cgx, 1)), ("CG_Y_mm", round(cgy, 1)), ("CG_Z_mm", round(cgz, 1))):
@@ -140,7 +141,7 @@ with open(os.path.join(OUT, "carbon", "cut_list.csv"), "w", newline="") as f:
 
 # ---- assembly STEP (flat compound, every part in flight position)
 t = time.time()
-comp.exportStep(os.path.join(OUT, "assembly", "TechfestPlane_revH_assembly.step"))
+comp.exportStep(os.path.join(OUT, "assembly", "TechfestPlane_rev%s_assembly.step" % REV))
 say("assembly STEP written, %d solids, %.0f s" % (len(comp.Solids), time.time() - t))
 open(os.path.join(OUT, "release_report.txt"), "w").write("\n".join(rep) + "\n")
 print("DONE")

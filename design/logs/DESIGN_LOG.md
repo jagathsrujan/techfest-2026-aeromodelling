@@ -127,3 +127,13 @@ Full notebook: `logs/phase5_log.md`.
 - **BOM: 807.3 g, CG X 233.6.**
 - **Not done:** 4 fixed joints (fairing, tail cone, two Z-bends) are flagged invalid by FreeCAD although the solver returns 0 and the parts sit in place; the laser DXF sheets were not regenerated (no laser part changed).
 - A backup of the model before this phase is `cad/to/work/TechfestPlane_revH_pre_release.FCStd` (not in git).
+
+## Phase 7: rev J, plain fuselage without the cargo system (2026-11-13)
+Full description: `08_revJ_plain_fuselage.md`. Script: `cad/scripts/build_revJ.py`.
+
+- **Request from the team:** remove the competition-specific ball loading and unloading, and make a normal fuselage for plain flying.
+- **Decision:** a new revision file (rev J); rev H stays as the cargo version.
+- **Fuselage shape:** a 60 mm wide box shell with the same front wall plane and the same two spine saddles as the hopper. Alternative considered: a fresh shape with new mounts. Rejected, because keeping the hopper's interfaces means the nose pod, wing clamps, spine and servo mounts are reused without change.
+- **Removed:** hopper, gates, chute, lids, both fairings, 2 servos and their linkages: 35 items.
+- **Result: 703.1 g (−104 g), CG X 224.7, static margin 20 %.** 120 parts, all attached, no new clashes.
+- **Problems:** (1) the tail cone's source shape was left visible after its body was deleted; removed. (2) An unused M3×40 body and BOM row were left from phase 5; the BOM row is now the M3×20 cross-bolt. (3) The assembly solver returns −1 on rev J; positions are correct, cause not found.

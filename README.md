@@ -2,9 +2,22 @@
 
 Design files for an entry in the IIT Bombay Techfest 2026-27 National Aeromodelling competition: a hand-launched, belly-landing electric plane that carries 43 mm golf balls internally and loads and drops them from the transmitter.
 
+There are two versions of the airframe:
+
+| Version | What it is | Empty mass | Build files |
+|---|---|---|---|
+| **Rev J** | Plain flyer: normal fuselage, no cargo system, 4 servos | 703 g | [design/cad/release_revJ/](design/cad/release_revJ/) |
+| **Rev H** | Competition version: ball hopper, side gates, load chute, 6 servos | 807 g | [design/cad/release_revH/](design/cad/release_revH/) |
+
+Both share the same wing, tail, spine, nose pod and wing clamps. [design/08_revJ_plain_fuselage.md](design/08_revJ_plain_fuselage.md) lists the differences.
+
+![Rev J, seen from below](design/cad/release_revJ/renders/iso_below_revJ.png)
+
+Rev H for comparison:
+
 ![Rev H, seen from below](design/cad/release_revH/renders/iso_below_revH.png)
 
-## The aircraft (rev H)
+## The aircraft (rev H numbers; rev J differs only in the fuselage)
 
 | | Value | Rule limit |
 |---|---|---|
@@ -26,7 +39,8 @@ How it is built:
 
 | Path | What |
 |---|---|
-| [design/cad/TechfestPlane_revH.FCStd](design/cad/TechfestPlane_revH.FCStd) | The FreeCAD 1.1 model: 72 parametric bodies driven by one `Params` spreadsheet, assembled with joints |
+| [design/cad/TechfestPlane_revJ.FCStd](design/cad/TechfestPlane_revJ.FCStd) | Rev J FreeCAD model (plain fuselage) |
+| [design/cad/TechfestPlane_revH.FCStd](design/cad/TechfestPlane_revH.FCStd) | Rev H FreeCAD 1.1 model: 72 parametric bodies driven by one `Params` spreadsheet, assembled with joints |
 | [design/cad/release_revH/](design/cad/release_revH/) | **Files to build from**: print, laser and cut files, BOM, renders. Start with its [README](design/cad/release_revH/README.md) |
 | [design/cad/laser_dxf/](design/cad/laser_dxf/) | 4 nested laser sheets (balsa 1.5 / 2 / 3 mm, lite-ply 3 mm) |
 | [design/cad/assembly_order_revH.md](design/cad/assembly_order_revH.md) | Assembly sequence with tool access checked per bolt |
@@ -40,14 +54,14 @@ Older revisions (B to G) are kept in `design/cad/` for reference.
 ## Regenerating the release
 
 ```bash
-freecadcmd design/cad/scripts/export_release.py
+REV=J freecadcmd design/cad/scripts/export_release.py
 ```
 
 ```bash
-freecadcmd design/cad/scripts/contact_scan.py
+REV=J freecadcmd design/cad/scripts/contact_scan.py
 ```
 
-The first rewrites every file in `release_revH/` from the FreeCAD model. The second checks that every part touches the structure, and lists any clashes.
+Use `REV=H` for the cargo version. The first rewrites every file in `release_revJ/` (or `release_revH/`) from the FreeCAD model. The second checks that every part touches the structure, and lists any clashes.
 
 ## Status and open items
 
@@ -55,6 +69,8 @@ Done: full airframe modelled and assembled, no floating parts, no clashes above 
 
 Still open:
 
+- **Rev J's assembly solver reports an error** although every part is in place; see the rev J document.
+- **Rev J carries no payload**, so only rev H can score in the payload rounds.
 - **Electronics are placeholders.** Motor, ESC, battery and servo masses are typical values; the team's actual parts are not yet confirmed.
 - **Topology optimisation was stopped after two parts** (front wing clamp −45 %, motor mount −36 %) because it was taking too long. The tail mount and rear clamp keep their hand-lightened shapes.
 - **Nothing has been printed or flown.** The 0.4 mm nose fairing skin should be test-printed first.

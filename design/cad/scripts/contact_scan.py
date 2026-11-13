@@ -2,10 +2,12 @@
 Run: freecadcmd design/cad/scripts/contact_scan.py   (writes release_revH/contact_scan.txt)"""
 import FreeCAD, Part, os, sys
 CAD=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-out=open(os.path.join(CAD,"release_revH","contact_scan.txt"),"w")
+REV=os.environ.get("REV","J")
+os.makedirs(os.path.join(CAD,"release_rev"+REV),exist_ok=True)
+out=open(os.path.join(CAD,"release_rev"+REV,"contact_scan.txt"),"w")
 def P(*a):
     out.write(" ".join(str(x) for x in a)+"\n"); out.flush()
-doc=FreeCAD.openDocument(os.path.join(CAD,"TechfestPlane_revH.FCStd"))
+doc=FreeCAD.openDocument(os.path.join(CAD,"TechfestPlane_rev%s.FCStd"%REV))
 asm=[o for o in doc.Objects if o.TypeId=="Assembly::AssemblyObject"][0]
 leaves=[]
 def walk(obj,mat,path):

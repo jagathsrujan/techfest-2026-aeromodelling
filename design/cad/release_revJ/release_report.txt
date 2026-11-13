@@ -1,0 +1,42 @@
+leaf bodies placed in assembly: 120
+walker envelope  X -72.2..946.0  Y -596.0..596.0  Z 69.0..315.0
+Part.getShape    X -72.2..946.0  Y -596.0..596.0  Z 69.0..315.0
+SPAN (Y extent) = 1192.00 mm  (rule: <= 1200)
+EMPTY MASS 703.1 g (was 703.1)  rule: <= 1000
+CG X 224.7 (was 224.7)  Y 0.5  Z 135.5
+CUT   Spine              x1 CF tube/rod      L 943.0  section 14.0 x 14.0
+PRINT Fuselage           x1 LW-PLA (foamed)  valid True  320x72x60  29.7 g  fits_bed True
+CUT   Spar_Front         x1 CF tube/rod      L 1190.0  section 8.0 x 8.0
+PRINT NosePod            x1 LW-PLA (foamed)  valid True  138x81x60  21.8 g  fits_bed True
+LASER RootRib            x4 lite-ply 3 mm    valid True  184x35x3.0
+LASER Rib                x18 balsa 2-3 mm     valid True  184x35x2.0
+PRINT TailMount          x1 PA-CF            valid True  166x33x20  15.2 g  fits_bed True
+CUT   Spar_Rear          x1 CF tube/rod      L 1190.0  section 4.0 x 4.0
+PRINT WingClampCap_F     x1 PA-CF            valid True  40x31x27  7.6 g  fits_bed True
+LASER LE_Sheet_Top       x1 balsa 1.5 mm     valid True  1188x37x26.1
+PRINT WingClampCap_R     x1 PA-CF            valid True  36x30x16  13.0 g  fits_bed True
+LASER LE_Sheet_Bot       x1 balsa 1.5 mm     valid True  1188x36x4.1
+LASER TipPlate           x2 balsa 2 mm       valid True  240x50x2.0
+LASER Aileron_R          x1 balsa 2-3 mm     valid True  380x54x19.9
+LASER Aileron_L          x1 balsa 2-3 mm     valid True  380x54x19.9
+PRINT MotorMount         x1 PA-CF            valid True  41x41x6  4.4 g  fits_bed True
+PRINT ServoTray_Ail      x2 PETG             valid True  58x18x16  3.3 g  fits_bed True
+LASER Stab               x1 balsa 2-3 mm     valid True  500x100x3.0
+LASER TE_Strip           x1 balsa 2-3 mm     valid True  1188x10x3.3
+PRINT BatteryTray        x1 PETG             valid True  100x48x12  5.1 g  fits_bed True
+CUT   BellySkid          x1 polycarbonate 1 mm L 98.0  section 40.0 x 1.0
+LASER Fin                x1 balsa 2-3 mm     valid True  164x115x3.0
+CUT   Pushrod_Rud        x1 CF tube/rod      L 743.8  section 24.0 x 16.0
+CUT   Pushrod_Ele        x1 CF tube/rod      L 732.8  section 24.0 x 16.0
+LASER Elevator_R         x1 balsa 2-3 mm     valid True  223x55x3.0
+LASER Elevator_L         x1 balsa 2-3 mm     valid True  223x55x3.0
+LASER TE_Fixed_R         x1 balsa 2-3 mm     valid True  187x54x19.9
+LASER TE_Fixed_L         x1 balsa 2-3 mm     valid True  187x54x19.9
+LASER Rudder             x1 balsa 2-3 mm     valid True  159x55x3.0
+PRINT ServoMount_Spine   x2 PETG             valid True  33x14x11  0.9 g  fits_bed True
+PRINT BatteryHatch       x1 LW-PLA (foamed)  valid True  110x81x60  1.7 g  fits_bed True
+CUT   Pushrod_AilR       x1 CF tube/rod      L 109.1  section 71.2 x 30.1
+CUT   Pushrod_AilL       x1 CF tube/rod      L 109.1  section 71.2 x 30.1
+PRINT ControlHorn        x3 PETG             valid True  13x10x3  0.2 g  fits_bed True
+PRINT ControlHorn_Rud    x1 PETG             valid True  26x10x10  0.6 g  fits_bed True
+assembly STEP written, 121 solids, 0 s
