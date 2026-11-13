@@ -1,0 +1,58 @@
+leaf bodies placed in assembly: 155
+walker envelope  X -72.2..946.0  Y -596.0..596.0  Z -1.0..315.0
+Part.getShape    X -72.2..946.0  Y -596.0..596.0  Z -1.0..315.0
+SPAN (Y extent) = 1192.00 mm  (rule: <= 1200)
+CHANGED Hopper           V 76894 -> 79476 mm3, mass 42.29 -> 43.71 g
+CHANGED WingClampCap_F   V 11356 -> 6307 mm3, mass 13.63 -> 7.57 g
+CHANGED MotorMount       V 5748 -> 3670 mm3, mass 6.90 -> 4.40 g
+EMPTY MASS 807.3 g (was 814.4)  rule: <= 1000
+CG X 233.6 (was 232.9)  Y 0.2  Z 126.7
+CUT   Spine              x1 CF tube/rod      L 943.0  section 14.0 x 14.0
+PRINT Hopper             x1 LW-PLA (foamed)  valid True  242x142x126  43.7 g  fits_bed True
+CUT   Spar_Front         x1 CF tube/rod      L 1190.0  section 8.0 x 8.0
+PRINT NosePod            x1 LW-PLA (foamed)  valid True  138x81x60  21.8 g  fits_bed True
+LASER RootRib            x4 lite-ply 3 mm    valid True  184x35x3.0
+PRINT Chute              x1 LW-PLA (foamed)  valid True  174x118x107  18.0 g  fits_bed True
+LASER Rib                x18 balsa 2-3 mm     valid True  184x35x2.0
+PRINT TailMount          x1 PA-CF            valid True  166x33x20  15.2 g  fits_bed True
+CUT   Spar_Rear          x1 CF tube/rod      L 1190.0  section 4.0 x 4.0
+PRINT WingClampCap_F     x1 PA-CF            valid True  40x31x27  7.6 g  fits_bed True
+LASER LE_Sheet_Top       x1 balsa 1.5 mm     valid True  1188x37x26.1
+PRINT WingClampCap_R     x1 PA-CF            valid True  36x30x16  13.0 g  fits_bed True
+PRINT ServoBracket_Lid   x1 PETG             valid True  51x37x34  11.9 g  fits_bed True
+LASER LE_Sheet_Bot       x1 balsa 1.5 mm     valid True  1188x36x4.1
+PRINT Fairing            x1 LW-PLA (foamed)  valid True  176x152x119  10.2 g  fits_bed True
+LASER TipPlate           x2 balsa 2 mm       valid True  240x50x2.0
+LASER Aileron_R          x1 balsa 2-3 mm     valid True  380x54x19.9
+LASER Aileron_L          x1 balsa 2-3 mm     valid True  380x54x19.9
+PRINT MotorMount         x1 PA-CF            valid True  41x41x6  4.4 g  fits_bed True
+PRINT ServoTray_Ail      x2 PETG             valid True  58x18x16  3.3 g  fits_bed True
+PRINT ServoBracket_Gate  x1 PETG             valid True  36x31x15  6.3 g  fits_bed True
+LASER Stab               x1 balsa 2-3 mm     valid True  500x100x3.0
+LASER TE_Strip           x1 balsa 2-3 mm     valid True  1188x10x3.3
+PRINT BatteryTray        x1 PETG             valid True  100x48x12  5.1 g  fits_bed True
+CUT   BellySkid          x1 polycarbonate 1 mm L 98.0  section 40.0 x 1.0
+LASER Fin                x1 balsa 2-3 mm     valid True  164x115x3.0
+CUT   Pushrod_Rud        x1 CF tube/rod      L 743.8  section 24.0 x 16.0
+CUT   Pushrod_Ele        x1 CF tube/rod      L 732.8  section 24.0 x 16.0
+LASER Elevator_R         x1 balsa 2-3 mm     valid True  223x55x3.0
+LASER Elevator_L         x1 balsa 2-3 mm     valid True  223x55x3.0
+LASER TE_Fixed_R         x1 balsa 2-3 mm     valid True  187x54x19.9
+LASER TE_Fixed_L         x1 balsa 2-3 mm     valid True  187x54x19.9
+PRINT Gate_R             x1 LW-PLA (foamed)  valid True  92x57x12  3.0 g  fits_bed True
+PRINT Gate_L             x1 LW-PLA (foamed)  valid True  92x57x12  3.0 g  fits_bed True
+PRINT FairingTail        x1 LW-PLA (foamed)  valid True  119x90x54  2.9 g  fits_bed True
+LASER Rudder             x1 balsa 2-3 mm     valid True  159x55x3.0
+PRINT ServoMount_Spine   x2 PETG             valid True  33x14x11  0.9 g  fits_bed True
+PRINT BatteryHatch       x1 LW-PLA (foamed)  valid True  110x81x60  1.7 g  fits_bed True
+PRINT PortLid_R          x1 LW-PLA (foamed)  valid True  54x50x4  1.5 g  fits_bed True
+PRINT PortLid_L          x1 LW-PLA (foamed)  valid True  54x50x4  1.5 g  fits_bed True
+CUT   Pushrod_AilR       x1 CF tube/rod      L 109.1  section 71.2 x 30.1
+CUT   Pushrod_AilL       x1 CF tube/rod      L 109.1  section 71.2 x 30.1
+PRINT ControlHorn        x3 PETG             valid True  13x10x3  0.2 g  fits_bed True
+PRINT ControlHorn_Rud    x1 PETG             valid True  26x10x10  0.6 g  fits_bed True
+PRINT GateHorn_R         x1 PETG             valid True  14x6x4  0.2 g  fits_bed True
+PRINT GateHorn_L         x1 PETG             valid True  12x6x4  0.2 g  fits_bed True
+PRINT LidHorn_R          x1 PETG             valid True  15x6x4  0.2 g  fits_bed True
+PRINT LidHorn_L          x1 PETG             valid True  15x6x4  0.2 g  fits_bed True
+assembly STEP written, 156 solids, 1 s

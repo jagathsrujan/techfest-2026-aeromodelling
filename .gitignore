@@ -1,0 +1,6 @@
+.DS_Store
+*.FCBak
+*.mp4
+*.pdf
+design/cad/to/work/
+__pycache__/

@@ -1,0 +1,9 @@
+part,qty,material,length_mm,stock,unit_mass_g
+Spine,1,CF tube/rod,943.0,CF tube OD 14 / ID 12,61.165
+Spar_Front,1,CF tube/rod,1190.0,CF tube OD 8 / ID 6,41.871
+Spar_Rear,1,CF tube/rod,1190.0,CF rod/tube OD 4,14.58
+BellySkid,1,polycarbonate 1 mm,98.0,"polycarbonate sheet 1 mm, 98 x 40",4.704
+Pushrod_Rud,1,CF tube/rod,743.8,CF rod OD 2 (length = straight run inside the spine),3.991
+Pushrod_Ele,1,CF tube/rod,732.8,CF rod OD 2 (length = straight run inside the spine),3.936
+Pushrod_AilR,1,CF tube/rod,109.1,CF rod OD 2 (overall length incl. end bends),0.737
+Pushrod_AilL,1,CF tube/rod,109.1,CF rod OD 2 (overall length incl. end bends),0.737
