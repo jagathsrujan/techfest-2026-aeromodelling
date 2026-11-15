@@ -169,8 +169,8 @@ Notebook of the executor: `logs/phase9_log.md`. Tree: `cad/release_revJ/tree_rev
 
 | Decision | Choice | Reason | How to reverse it |
 |---|---|---|---|
-| Source bodies in the panel | All 47 bodies are in one folder, `Part definitions (source bodies)` | The panel now starts with `Params`, `Assembly` and 1 folder | Move the bodies out of the folder |
-| 46 fastener links and 6 fastener bodies | Deleted from the model. The positions are in `cad/release_revJ/hardware_positions_revJ.csv` | They were about one third of the assembly tree, and they go out of date when the design changes. The holes, the insert pockets and the BOM rows stay | Make the links again from the CSV positions |
+| Source bodies and sub-assembly definitions in the panel | All 47 bodies and the 8 sub-assembly definitions are in one folder, `Part definitions (source bodies)` | The panel now shows only `Params`, `Assembly` and 1 closed folder | Move the items out of the folder |
+| 46 fastener links and 6 fastener bodies | Deleted from the model. The positions are in `cad/release_revJ/hardware_positions_revJ.csv` | They were about one third of the assembly tree, and they go out of date when the design changes. The holes, the insert pockets and the BOM rows stay | Restore the 6 fastener bodies and the links from git commit `1ea244c`. The CSV gives the positions |
 | Build steps in each body | Kept | The parts must stay editable by sketch and by the `Params` sheet | Not applicable |
 | 4 fairing features on the `NosePod` | Deleted | Rev J has no nose fairing | Restore from git commit `1ea244c` |
 
@@ -189,3 +189,8 @@ Notebook of the executor: `logs/phase9_log.md`. Tree: `cad/release_revJ/tree_rev
 - **The `NosePod` change was larger than the estimate.** The estimate was a few hundred mm³ with no change of the envelope. The 2 bosses also made 2 bumps of 0.4 mm above the pod top, and the insert pockets cut 2 holes of 4 mm through the top wall. The pod top is now smooth and closed.
 - **Fault found and prevented:** a folder in a linked sub-assembly makes FreeCAD draw the groups in incorrect positions. The number checks do not show this fault. A picture from a fresh open of the file is now a mandatory check after each tree change.
 - **Data to examine later (no change made):** the 4 motor-mount bolts did not have the same length and depth (1 × M3×8 and 3 × M3×10, at X −3.0, −4.1, −4.1 and −5.2 mm). The CSV file keeps these values.
+- **Model panel, examined on a picture of the FreeCAD window after a fresh open:** `Params`, `Assembly` (9 groups and `Joints`) and the closed folder. Picture: `cad/release_revJ/renders/model_panel_revJ.png`.
+- **7 sketches were visible in the 3D view** (for example `Sk_spine_flat`, `Sk_motorface_cut`). They are now hidden. The white frame at the motor is gone.
+- **Sub-assembly definitions in the folder:** this is safe if their `Visibility` stays True. The fault of phase 9 came only from a folder in a sub-assembly.
+- **New reference for the position check:** `cad/to/work/snap_before.json` is now the phase 9 state (75 leaves).
+- **Release files not made again (no print files were necessary):** `cad/release_revJ/printed/NosePod.*`, the assembly STEP and `BOM_revJ_release.csv` show the state before phase 9.

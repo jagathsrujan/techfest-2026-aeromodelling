@@ -59,4 +59,4 @@ Volume 53,966 mm³ = 29.7 g (the hopper was 43.7 g). The elevator and rudder ser
 - **The fuselage is a script-built solid, not a sketch-driven body.** To change it, edit the numbers at the top of `build_revJ.py` and re-run it on rev H.
 - **The CG is 9 mm further forward than rev H.** That is on the safe side for a beginner, but it needs more up-elevator trim; move the battery aft in the pod if it flies nose-heavy.
 - **This version carries no payload**, so it cannot score in the Techfest payload rounds. Rev H remains the competition version.
-- The two insert bosses at X 88 on the nose pod (for the old fairing) are now unused.
+- The two insert bosses at X 88 on the nose pod (for the old fairing) were removed in phase 9.

@@ -1,5 +1,7 @@
 # Rev J manufacturing release (plain fuselage)
 
+> **Out of date since phase 9 (2026-11-15).** The model changed after this export: the fastener links are removed and the `NosePod` has no fairing bosses (702.7 g, 75 parts). Run the export again before you make parts. See `../../logs/DESIGN_LOG.md`, phase 9.
+
 Everything here is generated from `../TechfestPlane_revJ.FCStd` by `../scripts/export_release.py`. Do not edit these files by hand; change the model and re-run the script.
 
 ![Side view](renders/side_revJ.png)

@@ -70,7 +70,7 @@ oseAssy.L_PropBlade_B. PropBlade         asm  x-55 y-92 z108 <-> ['FoldingProp13
 MountAssy.L_TailMount. TailMount         asm  x863 y0 z136 <-> ['Fin', 'Spine', 'Stab']
 _TailMountAssy.L_Stab. Stab              asm  x841 y0 z152 <-> ['ElevatorJoiner', 'Elevator_L', 'Elevator_R', 'Fin', 'TailMount']
 A_TailMountAssy.L_Fin. Fin               asm  x834 y0 z233 <-> ['Rudder', 'Stab', 'TailMount']
-evUnit_R.L_Elevator_R. Elevator_R        asm  x919 y139 z151 <-> ['ControlHorn', 'ElevatorJoiner', 'Stab']
+evUnit_R.L_Elevator_R. Elevator_R        asm  x919 y138 z151 <-> ['ControlHorn', 'ElevatorJoiner', 'Stab']
 t_R.L_ControlHorn_Ele. ControlHorn       asm  x905 y29 z154 <-> ['Elevator_R', 'ZBend_Ele']
 it_R.L_ElevatorJoiner. ElevatorJoiner    asm  x902 y0 z151 <-> ['Elevator_L', 'Elevator_R', 'Stab']
 evUnit_R.L_Elevator_L. Elevator_L        asm  x919 y-138 z151 <-> ['ElevatorJoiner', 'Stab']
