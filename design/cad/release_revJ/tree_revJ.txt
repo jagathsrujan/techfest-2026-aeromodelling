@@ -13,7 +13,6 @@ Assembly
     L_Pushrod_Rud
     L_ZBend_Ele
     L_ZBend_Rud
-    ... 12 fastener links (bolts, inserts, screws)
   Wing
     L_Spar_Front
     L_Spar_Rear
@@ -34,7 +33,6 @@ Assembly
     L_WingClampCap_F
     L_WingClampCap_R
     ... 22 rib links
-    ... 14 fastener links (bolts, inserts, screws)
   Aileron_R
     L_Aileron_R
     L_ControlHorn_AilR
@@ -53,12 +51,10 @@ Assembly
     L_FoldingProp13
     L_PropBlade_A
     L_PropBlade_B
-    ... 16 fastener links (bolts, inserts, screws)
   Tail
     L_TailMount
     L_Stab
     L_Fin
-    ... 4 fastener links (bolts, inserts, screws)
   Elevator
     L_Elevator_R
     L_ControlHorn_Ele
@@ -78,4 +74,6 @@ Assembly
     Rev Aileron_L
     Rev Elevator
     Rev Rudder
-Part definitions (source bodies)  (53 items; keep collapsed; open a body here to edit its shape)
+Part definitions (source bodies)  (47 items; keep collapsed; open a body here to edit its shape)
+
+Fasteners are not modelled in rev J (removed in phase 9). Their positions are in hardware_positions_revJ.csv; they stay in revJ_BOM.csv as bought items.

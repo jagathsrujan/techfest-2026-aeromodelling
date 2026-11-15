@@ -7,7 +7,7 @@ Fuselage,1,print,LW-PLA (foamed),0.55,53966.0,29.681,29.681
 Spar_Front,1,cut,CF tube/rod,1.6,26169.5,41.871,41.871
 FoldingProp13,1,buy,bought (fixed mass),0.0,14850.2,35.0,35.0
 ESC,1,buy,bought (fixed mass),0.0,16900.0,25.0,25.0
-NosePod,1,print,LW-PLA (foamed),0.55,39695.4,21.832,21.832
+NosePod,1,print,LW-PLA (foamed),0.55,38901.2,21.396,21.396
 Wiring,1,buy,servo/ESC/RX leads,0,0,20.0,20.0
 RootRib,4,laser,lite-ply 3 mm,0.6,7568.8,4.541,18.165
 Rib,18,laser,balsa 2-3 mm,0.16,5659.8,0.906,16.3
@@ -56,7 +56,7 @@ ControlHorn_Rud,1,print,PETG,1.27,457.5,0.581,0.581
 ZBend_Rud,1,buy,steel wire 1 mm,7.85,44.9,0.353,0.353
 ZBend_Ele,1,buy,steel wire 1 mm,7.85,35.3,0.277,0.277
 PropBlade,2,buy,in prop+spinner mass,0.0,6205.2,0.0,0.0
-TOTAL EMPTY (no payload),,,,,,,703.12
-CG_X_mm,,,,,,,224.7
+TOTAL EMPTY (no payload),,,,,,,702.68
+CG_X_mm,,,,,,,224.8
 CG_Y_mm,,,,,,,0.5
 CG_Z_mm,,,,,,,135.5

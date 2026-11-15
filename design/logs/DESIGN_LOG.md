@@ -161,3 +161,31 @@ Plan: `09_revJ_cleanup_plan.md`. Builder's notebook: `logs/phase8_log.md`. Final
   - Deleted coordinate systems (servo, tray and bolt positions, `LCS_ele`, `LCS_rud`, `LCS_clamp_r`, `LCS_stab`, `LCS_fin`) must be recreated if later work needs them.
   - 65 unused `Params` aliases that are not cargo-related were left in place.
   - Setting a hinge joint's `Angle` property does not move the surface in this FreeCAD version; rotate the surface's link and solve instead.
+
+## Phase 9: model panel clean-up (2026-11-15)
+Notebook of the executor: `logs/phase9_log.md`. Tree: `cad/release_revJ/tree_revJ.txt`.
+
+**Goal:** make the FreeCAD model panel short. The planner (Fable) made the decisions and examined the result. An Opus executor did the edits.
+
+| Decision | Choice | Reason | How to reverse it |
+|---|---|---|---|
+| Source bodies in the panel | All 47 bodies are in one folder, `Part definitions (source bodies)` | The panel now starts with `Params`, `Assembly` and 1 folder | Move the bodies out of the folder |
+| 46 fastener links and 6 fastener bodies | Deleted from the model. The positions are in `cad/release_revJ/hardware_positions_revJ.csv` | They were about one third of the assembly tree, and they go out of date when the design changes. The holes, the insert pockets and the BOM rows stay | Make the links again from the CSV positions |
+| Build steps in each body | Kept | The parts must stay editable by sketch and by the `Params` sheet | Not applicable |
+| 4 fairing features on the `NosePod` | Deleted | Rev J has no nose fairing | Restore from git commit `1ea244c` |
+
+**Result**
+
+| | Before | After |
+|---|---|---|
+| Objects in the document | 1138 | 1006 |
+| Leaf parts in the assembly | 121 | 75 |
+| `NosePod` volume | 39,695 mm³ | 38,901 mm³ (−794 mm³, −0.44 g) |
+| `NosePod` top (Z max) | 151.0 mm | 150.6 mm |
+| Empty mass (BOM) | 703.1 g | 702.7 g |
+| CG X | 224.7 mm | 224.8 mm |
+
+- **Checks on the saved file:** 46 parts are gone and each one is a fastener. Only the `NosePod` changed shape. No other part moved. 74 of 74 parts touch the structure. The solver gives 0. All 9 joints are up to date.
+- **The `NosePod` change was larger than the estimate.** The estimate was a few hundred mm³ with no change of the envelope. The 2 bosses also made 2 bumps of 0.4 mm above the pod top, and the insert pockets cut 2 holes of 4 mm through the top wall. The pod top is now smooth and closed.
+- **Fault found and prevented:** a folder in a linked sub-assembly makes FreeCAD draw the groups in incorrect positions. The number checks do not show this fault. A picture from a fresh open of the file is now a mandatory check after each tree change.
+- **Data to examine later (no change made):** the 4 motor-mount bolts did not have the same length and depth (1 × M3×8 and 3 × M3×10, at X −3.0, −4.1, −4.1 and −5.2 mm). The CSV file keeps these values.
